@@ -2,6 +2,21 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
+
+describe "links" do
+
+    it "have link to all page" do
+      visit home_path
+      click_link 'About'
+      current_path.should == '/static_pages/about'
+      click_link 'Home'
+      current_path.should == '/static_pages/home'
+       click_link 'Who We Are'
+      current_path.should == '/who-we-are'
+    end
+    
+end
+
  describe "Home pages" do
   	before(:each) {visit '/static_pages/home'}
    
@@ -13,11 +28,7 @@ describe "StaticPages" do
        page.should have_content('Welcome to Ruby Gardens Home')
    end
 
-    it "have link to about page" do
-      click_link 'About'
-      current_path.should == '/static_pages/about'
-    end
- end
+  end
 
  describe "About pages" do
    before(:each) {visit '/static_pages/about'}
@@ -26,12 +37,7 @@ describe "StaticPages" do
    	  page.should have_selector('title', text: 'Ruby Gardens :: About')
    end
 
-   it "have link to home page" do
-      click_link 'Home'
-      current_path.should == '/static_pages/home'
-   end
-
-   it 'have welcome content' do
+    it 'have welcome content' do
       page.should have_content('Welcome to Ruby Gardens About')
    end
  end
