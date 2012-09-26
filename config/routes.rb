@@ -1,5 +1,7 @@
 StaticApp::Application.routes.draw do
 
+  resources :people, :except => :show
+
   get "static_pages/home", :as => :home
   get "static_pages/about", :as => :about
   

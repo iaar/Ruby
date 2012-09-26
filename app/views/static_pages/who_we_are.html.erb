@@ -2,10 +2,10 @@
 <h1>Who We Are</h1>
  
 <table>
-  <% @emails.each do |email| %>
+  <% @persons.each do |persons| %>
   	<tr>
-    	<th><%= image_tag generation_link_to_gravatar(email) %></th>
-    	<th><%= generation_name(email) %></th>
+    	<th><%= image_tag generation_link_to_gravatar(persons.email) %></th>
+    	<th><%= generation_name(persons.email) %></th>
 	</tr>
   <% end %>
 </table>
